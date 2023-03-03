@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="task_list">
+        <center><h2>Tasks</h2><center>
+        <ul class="list-group">
+        {% for task in tasks %}
+            <div class="task_item" style="margin-bottom: 20px;">
+                <li class="list-group-item">
+                    <center>
+                        <h4>{{ task.title ?? 'Private'}}</h4>
+                        <a href="{{ path('task_edit', {'task': task.id}) }}"  class="btn btn-primary">Edit</a>
+                    <center>
+                </li>
+                
+            </div>
+        
+        {% else %}
+            <center><div class='task_item' style="margin-bottom: 50px;"><h3>No tasks found</h3></div></center>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

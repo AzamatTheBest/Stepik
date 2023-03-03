@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div>
+        <center><h1>Все пользователи</h1></center>
+        {% for user in users %}
+            <div style="margin-bottom: 20px;">
+                <center>
+                    <h4>{{ user.username ?? 'Private'}}</h4>
+                    <a class="btn btn-sm btn-info" href="{{ path('app_admin_edit_user', {'user': user.id}) }}">Edit</a>
+                    <a class="btn btn-sm btn-danger message_delete"  href="{{ path('user_delete', {'user': user.id}) }}">Delete</a>
+                </center>
+            </div>
+        {% else %}
+            <center><div style="margin-bottom: 50px;"><h3>No users found</h3></div></center>
+        {% endfor %}
+    </div>
+{% endblock %}

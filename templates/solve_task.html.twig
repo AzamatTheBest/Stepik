@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    
+    <div style="display: block;">
+        {% if task.type == 'practice' %}
+            {% if task.variants %}
+                <label style="margin-right: 100px;">I ... to school every work day</label>
+                {% for variant in task.variants %}
+                    {{ variant }}
+                    <input type="radio" id="huey" name="drone" value="{{ variant }}"/>
+                {% endfor %}
+                <a class="btn btn-primary" style="margin-left: 50px;" href="check_task">Solve</a>
+            {% endif %}
+              
+        {% endif %}
+    </div>
+{% endblock %}

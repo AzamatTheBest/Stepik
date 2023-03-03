@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    
+    {% for task in course.tasks %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+
+            <center><h5 class="card-title">{{ task.title }}</h5><center>
+            <p class="card-text">{{ task.type }}</p>
+            <center><a href="{{ path('task_solve', {'task': task.id}) }}" class="btn btn-primary">Solve tasks</a><center>
+
+{# if task.type === practice
+            if task.variants 
+                radio block 
+                else
+                <input class="solution"  #}
+
+
+                {# <a href="check_task">Solve</a> #}
+            {# <center><h5 class="card-title">{{ form(form.title) }}</h5><center>
+            <p class="card-text">{{ form_row(form.type) }}</p>
+            <center><a href="#" class="btn btn-primary">Solve tasks</a><center> #}
+        </div>
+    </div>    
+    {% endfor %}
+{% endblock %}

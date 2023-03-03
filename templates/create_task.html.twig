@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <center><h3>Create task</h3><center>
+    {{ form_start(form)}}
+    
+        <label>ORDER</label>
+        {{ form_row(form.course) }}
+        <label>ORDER</label>
+        {{ form_row(form.order) }}
+        <label style="margin-top: 20px;">TITLE</label>
+        {{ form_row(form.title) }}
+        <label style="margin-top: 20px;">TEXT</label>
+        {{ form_row(form.text) }}
+        <label style="margin-top: 20px;">TYPE</label>
+        {{ form_row(form.type) }}
+        <label style="margin-top: 20px;">CORRECT ANSWER</label>
+        {{ form_row(form.correctAnswer) }}
+        <label style="margin-top: 20px;">VARIANTS</label>
+        {{ form_row(form.variantsAsString) }}
+    <div class="mb-3">
+        <button class="btn btn-success" type="submit" style="margin-top: 20px;">Create</button>
+    </div>
+{% endblock %}

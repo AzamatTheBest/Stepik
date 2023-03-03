@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">STEPIK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               {% if is_granted('ROLE_MANAGER') %}
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ path('create_task')}}">Create Task</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ path('create_course')}}">Create Course</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ path('course_list')}}">Courses</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ path('task_list')}}">Tasks</a>
+                  </li>
+               {% endif %}
+               {% if is_granted('ROLE_ADMIN') %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('all_users')}}">All users</a>
+                  </li>
+               {% endif %}
+               <li class="nav-item">
+                  <a class="nav-link" href="{{ path('comment_view')}}">Comments</a>
+               </li>
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <main style="display: flex; justify-content: center; margin-top: 20px;">
+       <h2>Список курсов</h2>
+    </main>
+    
+        {% for course in courses %}
+        <div style="display: inline-block; margin-right: 50px;">
+         <div class="card" style="width: 18rem;">
+            <img src="{{ course.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+               <center><h5 class="card-title">{{ course.title }}</h5><center>
+               <p class="card-text">{{ course.description }}</p>
+               <center><a href="{{ path('task_choose', {'course': course.id}) }}" class="btn btn-primary">See tasks</a><center>
+            </div>
+         </div> 
+         </div>   
+        {% endfor %}
+    
+    
+    
+{% endblock %}

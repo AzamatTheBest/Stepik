@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="course_list">
+        <center><h2>Courses</h2></center>
+        <ul class="list-group">
+        {% for course in courses %}
+            <div class="course_item" style="margin-bottom: 20px;">
+                <li class="list-group-item">
+                    <center>
+                        <h4>{{ course.title ?? 'Private'}}</h4>
+                        <a class="btn btn-sm btn-info" href="{{ path('course_edit', {'course': course.id}) }}">Edit</a>
+                    </center>
+                </li>
+            </div>
+        
+        {% else %}
+            <center><div class='course_item' style="margin-bottom: 50px;"><h3>No courses found</h3></div></center>
+        {% endfor %}
+        </ul>
+    </div>
+
+    
+{% endblock %}

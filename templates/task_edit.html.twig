@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form)}}
+        {{ form_row(form.title) }}
+        {{ form_row(form.order) }}
+        {{ form_row(form.text) }}
+        {{ form_row(form.type) }}
+        {{ form_row(form.correctAnswer) }}
+        {# {{ form_row(form.variants) }} #}
+    <div class="mb-3">
+        <button class="btn btn-success" type="submit">Edit</button>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

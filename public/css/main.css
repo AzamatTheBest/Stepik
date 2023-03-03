@@ -1,0 +1,27 @@
+.comment-window {
+    position: relative;
+    height: 400px;
+    overflow-x: hidden !important;
+    overflow-y: scroll;
+    overflow-anchor: none;
+    touch-action: auto;
+}
+form.chat-form {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+div.prototypes {
+    display: none;
+}
+.chat-form {
+    margin-left: 10px;
+}
+.comment-btn {
+    background: none;
+    border: none;
+    height: 16px;
+    padding: 12px 0 0 0;
+    color: #59a6ff;
+}
